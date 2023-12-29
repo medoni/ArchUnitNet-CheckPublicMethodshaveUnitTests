@@ -1,0 +1,23 @@
+# dotnet
+.vs
+bin/
+obj/
+
+# visual studio (code)
+.vscode/
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+*.vspscc
+*.lck
+*.ldb
+*.bak
+
+# Windows-based files
+Thumbs.db
+ehthumbs.db
+
+# macOS-based files
+.DS_Store
