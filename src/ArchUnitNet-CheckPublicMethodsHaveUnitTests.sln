@@ -21,6 +21,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArchUnitNetHelpers", "Archi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArchUnitNetHelpersUnitTests", "Architecture\ArchUnitNetHelpersUnitTests\ArchUnitNetHelpersUnitTests.csproj", "{0B717BB4-7A63-4642-885D-AE70609A31BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A9B5712-19C9-4230-A198-EF4481F776C8}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		global.json = global.json
+		..\README.md = ..\README.md
+		..\spellcheck_exclusion.dic = ..\spellcheck_exclusion.dic
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

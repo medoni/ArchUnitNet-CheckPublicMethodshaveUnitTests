@@ -36,7 +36,7 @@ public class HaveFixtureExtensionMethodsFixture
         // act
         var result = classesThatShouldHaveFixtures
             .Should()
-            .HaveUnitTest(fixtureClasses)
+            .HaveUnitTest()
             .Evaluate(Architecture);
 
         // assert

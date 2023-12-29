@@ -21,5 +21,5 @@ public class PublicClassesShouldHaveUnitTestFixture
             .Are(ExampleServiceArchitecture.ClassesThatShouldBeTested)
             .As("Public Classes")
         .Should()
-            .HaveUnitTest(ExampleServiceArchitecture.TestClasses);
+            .HaveUnitTest();
 }

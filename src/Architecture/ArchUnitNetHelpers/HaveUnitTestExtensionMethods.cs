@@ -14,7 +14,6 @@ public static class HaveUnitTestExtensionMethods
     /// </summary>
     public static IArchRule HaveUnitTest(
         this MethodMembersShould should,
-        IObjectProvider<Class> unitTestClasses,
         string classFixtureName = "Fixture"
     )
     {
@@ -29,7 +28,6 @@ public static class HaveUnitTestExtensionMethods
             {
                 var result = GetMethodHasUnitTestResult(
                     architecture,
-                    unitTestClasses,
                     method,
                     classFixtureName
                 );
@@ -42,14 +40,13 @@ public static class HaveUnitTestExtensionMethods
 
     private static ConditionResult? GetMethodHasUnitTestResult(
         Architecture architecture,
-        IObjectProvider<Class> unitTestClasses,
         MethodMember method,
         string classFixtureName
     )
     {
         if (method.DeclaringType is null) return null;
 
-        var fixtureType = HaveFixtureExtensionMethods.GetFixtureTypeFromClass(architecture, method.DeclaringType, unitTestClasses, classFixtureName);
+        var fixtureType = HaveFixtureExtensionMethods.GetFixtureTypeFromClass(architecture, method.DeclaringType, classFixtureName);
         if (fixtureType is null)
         {
             return new ConditionResult(method, false, $"Class '{method.DeclaringType.FullName}' has no corresponding '{method.DeclaringType}{classFixtureName}' class.");
