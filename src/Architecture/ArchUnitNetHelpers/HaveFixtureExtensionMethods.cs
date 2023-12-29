@@ -8,9 +8,9 @@ namespace ArchUnitNetHelpers;
 public static class HaveFixtureExtensionMethods
 {
     /// <summary>
-    /// Checks that the given methods have public unit tests
+    /// Checks that the given classes have corresponding fixture class
     /// </summary>
-    public static IArchRule HaveUnitTest(
+    public static IArchRule HaveFixtures(
         this ClassesShould should,
         string classFixtureName = "Fixture"
     )

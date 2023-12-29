@@ -12,7 +12,7 @@ public static class HaveUnitTestExtensionMethods
     /// <summary>
     /// Checks that the given methods have public unit tests
     /// </summary>
-    public static IArchRule HaveUnitTest(
+    public static IArchRule HaveUnitTests(
         this MethodMembersShould should,
         string classFixtureName = "Fixture"
     )

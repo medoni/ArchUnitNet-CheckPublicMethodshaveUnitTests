@@ -25,5 +25,5 @@ public class PublicMethodsShouldHaveUnitTestFixture
             .DoNotHaveNameStartingWith("set_")
             .As("Public methods")
         .Should()
-            .HaveUnitTest();
+            .HaveUnitTests();
 }
