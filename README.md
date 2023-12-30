@@ -4,6 +4,8 @@ This is an example to show how unit tests can be enforced for a given list of cl
 ## How To
 The following snippet shows how fixture classes can be enforced for public classes:
 ```csharp
+using static ArchUnitNET.Fluent.ArchRuleDefinition;
+
 [TestFixture]
 [Category("Architecture")]
 public class PublicClassesShouldHaveUnitTestFixture
@@ -11,14 +13,14 @@ public class PublicClassesShouldHaveUnitTestFixture
     [Test]
     public void Verify()
     {
-        PublicMethodsShouldHaveUnitTestRule.Check(ExampleServiceArchitecture.Architecture);
+        ClassesThatShouldBeTestedRule.Check(ExampleServiceArchitecture.Architecture);
     }
 
-    private static readonly IArchRule PublicMethodsShouldHaveUnitTestRule =
+    private static readonly IArchRule ClassesThatShouldBeTestedRule =
         Classes()
             .That()
             .Are(ExampleServiceArchitecture.ClassesThatShouldBeTested)
-            .As("Public Classes")
+            .As("Classes that should be tested needs a Fixture class. See LINK_TO_WIKI.")
         .Should()
             .HaveFixtures();
 }
@@ -27,14 +29,16 @@ See [PublicClassesShouldHaveUnitTestFixture.cs](https://github.com/medoni/ArchUn
 
 If a fixture is missing or misspelled, the test will fail with the following message:
 ```
-"Public Classes should Have unit tests Public Classes" failed:
-	ExampleService.Controllers.WeatherForecastController Class 'ExampleService.Controllers.WeatherForecastController' has no corresponding 'WeatherForecastControllerFixture' class.
+Classes that should be tested needs a Fixture class. See LINK_TO_WIKI. should Have unit tests Classes that should be tested needs a Fixture class. See LINK_TO_WIKI." failed:
+   ExampleService.WeatherForecast
 ```
 
 ---
 
 The following snippet shows how unit tests methods can be enforced for each public method:
 ```csharp
+using static ArchUnitNET.Fluent.ArchRuleDefinition;
+
 [TestFixture]
 [Category("Architecture")]
 public class PublicMethodsShouldHaveUnitTestFixture
@@ -53,11 +57,18 @@ public class PublicMethodsShouldHaveUnitTestFixture
             .AreNoConstructors().And()
             .DoNotHaveNameStartingWith("get_").And()
             .DoNotHaveNameStartingWith("set_")
-            .As("Public methods")
+            .As("Public methods needs Unit Tests. See LINK_TO_WIKI.")
         .Should()
             .HaveUnitTests();
+}
 ```
 See [PublicMethodsShouldHaveUnitTestFixture.cs](https://github.com/medoni/ArchUnitNet-CheckPublicMethodshaveUnitTests/blob/main/src/Architecture/ExampleService.ArchitectureTests/UnitTests/PublicMethodsShouldHaveUnitTestFixture.cs)
+
+If a fixture is missing or misspelled, the test will fail with the following message:
+```
+Public methods needs Unit Tests. See LINK_TO_WIKI. should Have unit tests Public methods needs Unit Tests. See LINK_TO_WIKI." failed:
+   System.Collections.Generic.IEnumerable`1<ExampleService.WeatherForecast> ExampleService.Controllers.WeatherForecastController::Get()
+```
 
 The necessary architecture definition:
 ```csharp
