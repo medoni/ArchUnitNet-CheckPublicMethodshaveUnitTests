@@ -13,6 +13,11 @@ internal static class ExampleServiceArchitecture
 
     public static IObjectProvider<Class> TestClasses { get; }
 
+    public static IObjectProvider<Class> DomainLayer { get; }
+    public static IObjectProvider<Class> PersistenceLayer { get; }
+    public static IObjectProvider<Class> CommandHandler { get; }
+    public static IObjectProvider<Class> EventHandler { get; }
+
     static ExampleServiceArchitecture()
     {
         Architecture =
@@ -35,12 +40,38 @@ internal static class ExampleServiceArchitecture
             .AreNot(TestClasses)
             .As("Public Classes");
 
-        ClassesThatShouldBeTested =
+        DomainLayer =
             Classes()
             .That()
             .Are(PublicClasses).And()
-            .DoNotHaveName("Program").And()
-            .DoNotImplementInterface(@"Swashbuckle\.AspNetCore\.Filters\.IExamplesProvider\W", true)
+            .ResideInNamespace(@"\.Domain\.", true)
+            .As("Domain Layer");
+
+        PersistenceLayer = Classes()
+            .That()
+            .Are(PublicClasses).And()
+            .ResideInNamespace(@"\.Persistence\.", true)
+            .As("Persistence Layer");
+
+        CommandHandler = Classes()
+            .That()
+            .Are(PublicClasses).And()
+            .ImplementInterface("ICommandHandler", true)
+            .As("Command handler");
+
+        EventHandler = Classes()
+            .That()
+            .Are(PublicClasses).And()
+            .ImplementInterface("IEventHandler", true)
+            .As("Event handler");
+
+        ClassesThatShouldBeTested =
+            Classes()
+            .That()
+            .Are(DomainLayer).Or()
+            .Are(PersistenceLayer).Or()
+            .Are(CommandHandler).Or()
+            .Are(EventHandler)
             .As("Public classes that should be tested");
     }
 }
