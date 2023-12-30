@@ -1,4 +1,4 @@
-# ArchUnit - Check that public methods have unit tests
+# ArchUnitNet - Enforce unit tests on all public methods
 This is an example to show how unit tests can be enforced for a given list of classes.
 
 ## How To
@@ -123,5 +123,12 @@ Required packages:
 - [ArchUnitNet](https://github.com/TNG/ArchUnitNET)
 
 ## Motivation
+As Software Architect I want to
+- increase efficiency during Pull Requests
+- early detect violations of the defined architecture and design
+- continuous improvement of software
 
-## Other
+for that I'm playing with ArchUnitNet
+
+## References
+- Medium article about this repo: TODO:
