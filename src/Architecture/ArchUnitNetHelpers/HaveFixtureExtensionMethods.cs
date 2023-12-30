@@ -45,7 +45,7 @@ public static class HaveFixtureExtensionMethods
         var fixtureType = GetFixtureTypeFromClass(architecture, classItem, classFixtureName);
         if (fixtureType is null)
         {
-            return new ConditionResult(classItem, false, $"Class '{classItem.FullName}' has no corresponding '{classItem.Name}{classFixtureName}' class.");
+            return new ConditionResult(classItem, false);
         }
 
         return new ConditionResult(classItem, true);

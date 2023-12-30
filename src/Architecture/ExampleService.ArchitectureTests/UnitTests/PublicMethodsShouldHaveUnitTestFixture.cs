@@ -23,7 +23,7 @@ public class PublicMethodsShouldHaveUnitTestFixture
             .AreNoConstructors().And()
             .DoNotHaveNameStartingWith("get_").And()
             .DoNotHaveNameStartingWith("set_")
-            .As("Public methods")
+            .As("Public methods needs Unit Tests. See LINK_TO_WIKI.")
         .Should()
             .HaveUnitTests();
 }

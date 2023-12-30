@@ -54,7 +54,7 @@ public static class HaveUnitTestExtensionMethods
 
         if (!FixtureHasTestMethod(fixtureType, method))
         {
-            return new ConditionResult(method, false, $"Method '{method.Name}' has no corresponding unit test.");
+            return new ConditionResult(method, false);
         }
 
         return new ConditionResult(method, true);

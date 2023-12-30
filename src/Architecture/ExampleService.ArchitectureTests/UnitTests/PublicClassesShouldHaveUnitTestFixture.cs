@@ -12,14 +12,14 @@ public class PublicClassesShouldHaveUnitTestFixture
     [Test]
     public void Verify()
     {
-        PublicMethodsShouldHaveUnitTestRule.Check(ExampleServiceArchitecture.Architecture);
+        ClassesThatShouldBeTestedRule.Check(ExampleServiceArchitecture.Architecture);
     }
 
-    private static readonly IArchRule PublicMethodsShouldHaveUnitTestRule =
+    private static readonly IArchRule ClassesThatShouldBeTestedRule =
         Classes()
             .That()
             .Are(ExampleServiceArchitecture.ClassesThatShouldBeTested)
-            .As("Public Classes")
+            .As("Classes that should be tested needs a Fixture class. See LINK_TO_WIKI.")
         .Should()
             .HaveFixtures();
 }
