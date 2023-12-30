@@ -131,7 +131,7 @@ As Software Architect I want to
 for that I'm playing with ArchUnitNet
 
 ## References
-- Medium article about this repo: TODO:
+- Medium article about this repo: [Enforce unit tests on all public methods (Software Architecture)](https://medium.com/@meichhorn/enforce-unit-tests-on-all-public-methods-software-architecture-1f9cc96f70a9):
 
 ---
 <div align="center">
