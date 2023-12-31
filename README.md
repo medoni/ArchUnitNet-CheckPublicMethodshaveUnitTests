@@ -57,7 +57,7 @@ public class PublicMethodsShouldHaveUnitTestFixture
             .AreNoConstructors().And()
             .DoNotHaveNameStartingWith("get_").And()
             .DoNotHaveNameStartingWith("set_")
-            .As("Public methods needs Unit Tests. See LINK_TO_WIKI.")
+            .As("Public methods need Unit Tests. See LINK_TO_WIKI.")
         .Should()
             .HaveUnitTests();
 }
@@ -66,7 +66,7 @@ See [PublicMethodsShouldHaveUnitTestFixture.cs](https://github.com/medoni/ArchUn
 
 If a fixture is missing or misspelled, the test will fail with the following message:
 ```
-Public methods needs Unit Tests. See LINK_TO_WIKI. should Have unit tests Public methods needs Unit Tests. See LINK_TO_WIKI." failed:
+Public methods need Unit Tests. See LINK_TO_WIKI. should Have unit tests Public methods need Unit Tests. See LINK_TO_WIKI." failed:
    System.Collections.Generic.IEnumerable`1<ExampleService.WeatherForecast> ExampleService.Controllers.WeatherForecastController::Get()
 ```
 
@@ -112,7 +112,7 @@ internal static class ExampleServiceArchitecture
     }
 }
 ```
-See[ExampleServiceArchitecture.cs](https://github.com/medoni/ArchUnitNet-CheckPublicMethodshaveUnitTests/blob/main/src/Architecture/ExampleService.ArchitectureTests/ExampleServiceArchitecture.cs)
+See [ExampleServiceArchitecture.cs](https://github.com/medoni/ArchUnitNet-CheckPublicMethodshaveUnitTests/blob/main/src/Architecture/ExampleService.ArchitectureTests/ExampleServiceArchitecture.cs)
 
 ## Implementation
 The following extensions methods have been added to the `.Should()` method:
